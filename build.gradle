@@ -13,7 +13,27 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //compile ('org.projectlombok:lombok:1.18.0')         //lombok 注解
+    //lombok 使用 > https://blog.csdn.net/Box_clf/article/details/80992121
+    // Gradle使用Lombok的正确方式 避免Gradle deprecated annotation processor warnings for lombok
+    // > https://blog.csdn.net/kcp606/article/details/81269184
+    annotationProcessor 'org.projectlombok:lombok:1.18.2'
+    compileOnly 'org.projectlombok:lombok:1.18.2'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.2'
+    testCompileOnly 'org.projectlombok:lombok:1.18.2'
+    
+    compile("io.springfox:springfox-swagger2:2.7.0")    //swagger2核心依赖
+    compile("io.springfox:springfox-swagger-ui:2.7.0")  //为项目提供api展示及测试的界面
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+
+    // https://mvnrepository.com/artifact/com.google.zxing/core
+    compile group: 'com.google.zxing', name: 'core', version: '3.3.3'
+
 }
